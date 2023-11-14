@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\courseConroller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,25 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/course',[courseConroller::class,'index'])->name('course.index'); 
+Route::get('/course/create',[courseConroller::class,'create'])->name('course.create');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/course/show/{id}',[courseConroller::class,'show'])->name('course.show');
+
+
+
+
+
+ Route::post('/course/store',[courseConroller::class,'store'])->name('course.store');
+
+
+
+ Route::get('/course/edit{id}',[courseConroller::class,'edit'])->name('course.edit');
+ 
+Route::put('/course/update/{id}',[courseConroller::class,'update'])->name('course.update');
+
+Route::delete('/course/delete/{id}',[courseConroller::class,'delete'])->name('course.delete'); 
+
+
+
+
